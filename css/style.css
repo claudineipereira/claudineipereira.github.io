@@ -7,6 +7,11 @@ p {
     padding: 15px 0;
 }
 
+p:last-child {
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+
 h1, h2, h3 {
     line-height: 1.2;
 }
