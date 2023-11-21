@@ -37,19 +37,19 @@ a:hover, a:visited {
 }
 
 #header {
-    background-color: #EEEDE7;
+    background-color: rgba(238, 237, 231, 0.2); /* #EEEDE7; */
 }
 
 #sec1 {
-    background-color: #E7D2CC;
+    background-color:  rgba(231, 210, 204, 0.3); /* #E7D2CC; */
 }
 
 #sec2 {
-    background-color: #B9B7BD;
+    background-color: rgba(185, 183, 189, 0.4); /* #B9B7BD; */
 }
 
 #footer {
-    background-color: #868B8E;
+    background-color: rgba(134, 139, 142, 0.5); /* #868B8E; */ 
     text-align: center;
 }
 
@@ -58,7 +58,7 @@ a:hover, a:visited {
     max-width: 650px;
     line-height: 1.6;
     font-size: 16pt;
-    color: #444;
+    color: #333;
     padding: 15px 0;
 }
 
