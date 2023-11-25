@@ -22,14 +22,14 @@ def get_posts():
     posts = data.get('data')
 
     media_id = []
-    media_url = []
+    media_url = {'media': []}
 
     for item in posts[0:9]:
         media_id.append(item['id'])
 
     for media in media_id:
         url = requests.get(f'https://graph.instagram.com/{media}?access_token={token}&fields=media_url')
-        media_url.append({
+        media_url['media'].append({
             'id': media,
             'url': url.json()['media_url']
         })
