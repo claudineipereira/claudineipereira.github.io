@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
     <title>Claudinei Pereira</title>
 </head>
 <body>
@@ -52,14 +53,8 @@
                 </div>
 
                 <div class="column">
-                    <p>Mussum Ipsum, cacilds vidis litro abertis. Per aumento de cachacis, 
-                        eu reclamis. Todo mundo vê os porris que eu tomo, mas ninguém vê os 
-                        tombis que eu levo! Suco de cevadiss deixa as pessoas mais interessantis. 
-                        Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. 
-                        Mé faiz elementum girarzis, nisi eros vermeio. Si u mundo tá muito 
-                        paradis? Toma um mé que o mundo vai girarzis! Nec orci ornare consequat. 
-                        Praesent lacinia ultrices consectetur. Sed non ipsum felis. Vehicula 
-                        non. Ut sed ex eros. Vivamus sit amet nibh non tellus tristique interdum.</p>
+                    <h3>Latest Instagram Posts</h3>
+                    <div id="posts"></div>
                 </div>
             </div>
         </div>
@@ -71,6 +66,30 @@
                 <a href="https://www.claudineipereira.com">Claudinei Pereira</a></span>
         </div>
     </section>
+
+<script>
+    async function get_posts() {
+        try {
+            const url = '/instagram/posts.json';
+            const response = await fetch(url);
+            const posts = await response.json();
+            return posts;
+        } catch (error) {
+                console.error(error);
+        }
+    }
+
+    (async function show_posts() {
+        const posts = await get_posts();
+        let template = `<ul>
+                            {{#media}}
+                            <li><img src={{url}}>
+                            {{/media}}
+                        </ul>`;  
+        let output = Mustache.render(template, posts);
+        document.getElementById('posts').innerHTML = output;
+    })()
+</script>
 
 </body>
 </html>
