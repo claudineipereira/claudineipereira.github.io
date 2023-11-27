@@ -81,11 +81,13 @@
 
     (async function show_posts() {
         const posts = await get_posts();
-        let template = `<ul>
+        let template = `<div id="instagram">
                             {{#media}}
-                            <li><img src={{url}}>
+                                <div class="post">
+                                    <img src={{url}}>
+                                </div>
                             {{/media}}
-                        </ul>`;  
+                        </div>`;  
         let output = Mustache.render(template, posts);
         document.getElementById('posts').innerHTML = output;
     })()

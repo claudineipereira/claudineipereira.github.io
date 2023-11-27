@@ -78,6 +78,25 @@ a:hover, a:visited {
     flex: 1;
 }
 
+/* Instagram */
+
+#instagram {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+#instagram:last-child {
+    justify-content: flex-start;
+}
+
+.post > img {
+    max-width: 100%;
+    height: 100px;
+}
+
 @media screen and (max-width: 768px) {
     .content {
         width: 80%;
