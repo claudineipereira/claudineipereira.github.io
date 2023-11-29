@@ -28,11 +28,12 @@ def get_posts():
         media_id.append(item['id'])
     
     for media in media_id:
-        url = requests.get(f'https://graph.instagram.com/{media}?access_token={token}&fields=media_url')
+        url = requests.get(f'https://graph.instagram.com/{media}?access_token={token}&fields=media_url,permalink')
         if 'dst-jpg' in url.text:
             media_url['media'].append({
                 'id': media,
-                'url': url.json()['media_url']
+                'url': url.json()['media_url'],
+                'permalink': url.json()['permalink']
             })
 
     json_object = json.dumps(media_url)

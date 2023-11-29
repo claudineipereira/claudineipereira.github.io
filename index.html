@@ -91,7 +91,9 @@
         let template = `<div id="instagram">
                             {{#media}}
                                 <div class="post">
-                                    <img src={{url}} />
+                                    <a href="{{permalink}}" target="_blank">
+                                        <img src="{{url}}">
+                                    </a>
                                 </div>
                             {{/media}}
                         </div>`;  
